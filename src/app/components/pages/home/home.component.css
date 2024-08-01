@@ -1,0 +1,83 @@
+/* .home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+} */
+
+.home-container h1 {
+  margin-bottom: 0.5em;
+}
+
+.moments-container {
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+  max-width: 80%;
+  margin: 0 auto;
+  /* justify-content: space-between; */
+}
+
+/* .moment {
+  width: 32%;
+  margin-bottom: 1em;
+  text-align: center;
+} */
+.moment {
+ display: flex;
+ justify-content: space-between;
+ flex-wrap:wrap ;
+}
+
+.moment img {
+  width: 300px;
+  margin-bottom: 1em;
+  margin:  0 4px;
+}
+
+.moment h3,
+.moment p {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.moment .date {
+  font-size: 0.7em;
+  font-style: italic;
+}
+
+a {
+  color: #dec129;
+  padding: 0.3em 0.6em;
+}
+
+a:hover {
+  background-color: #efefef;
+}
+
+h1 {
+  text-align: center;
+}
+
+.search-container {
+  margin-bottom: 2em;
+  width: 100%;
+}
+
+.search-container form {
+  width: 30%;
+  position: relative;
+}
+
+.search-container fa-icon {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.search-container input {
+  padding: 0.5em;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
