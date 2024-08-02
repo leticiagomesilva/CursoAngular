@@ -1,3 +1,4 @@
+import { CadastroComponent } from './components/pages/cadastro/cadastro.component';
 import { MomentComponent } from './components/pages/moment/moment.component';
 import { FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
@@ -18,6 +19,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { EditMomentComponent } from './components/pages/edit-moment/edit-moment.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.component';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +29,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     NewMomentComponent, NgOptimizedImage, MomentFormComponent,
     HttpClientModule, ReactiveFormsModule, FormsModule, MessagesComponent,
     FontAwesomeModule, MomentComponent, EditMomentComponent,
-    LoginComponent, LoginFormComponent, ],
+    LoginComponent, LoginFormComponent, CadastroComponent, CadastroFormComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [HttpClient, HttpClientModule],

@@ -59,6 +59,11 @@ input[type="submit"]:hover {
   background-color: transparent;
 }
 
+.cadastro p:hover{
+  color: #dec129;
+  transition: 0.4s;
+}
+
 .validation-error p {
   color: #dc3545;
   margin-top: 0.4em;

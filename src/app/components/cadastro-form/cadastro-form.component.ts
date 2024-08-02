@@ -4,49 +4,45 @@ import { Login } from '../../Login';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login-form',
+  selector: 'app-cadastro-form',
   standalone: true,
   imports: [FormsModule, ReactiveFormsModule,],
-  templateUrl: './login-form.component.html',
-  styleUrl: './login-form.component.css'
+  templateUrl: './cadastro-form.component.html',
+  styleUrl: './cadastro-form.component.css'
 })
-export class LoginFormComponent {
+export class CadastroFormComponent {
   @Input() btnText!: string;
-  @Output() onSubmitLogin = new EventEmitter<Login>();
+  @Output() onSubmitCadastro = new EventEmitter<Login>();
   @Input() loginData: Login | null = null;
 
-  loginForm!: FormGroup;
+  cadastroForm!: FormGroup;
 
   constructor(private router: Router,) {}
 
   ngOnInit(): void{
-    this.loginForm = new FormGroup({
+    this.cadastroForm = new FormGroup({
       email: new FormControl(this.loginData ? this.loginData.email : '', [Validators.required, Validators.email]),
       password: new FormControl(this.loginData ? this.loginData.password : '', [Validators.required]),
     });
   }
 
   get email(){
-    return this.loginForm.get('email')!;
+    return this.cadastroForm.get('email')!;
   }
 
   get password(){
-    return this.loginForm.get('password')!;
+    return this.cadastroForm.get('password')!;
   }
 
-  submitLogin(){
-    if(this.loginForm.invalid){
+  submitCadastro(){
+    if(this.cadastroForm.invalid){
       console.log("não enviou")
       return;
     }
     console.log("deu bom");
-    console.log(this.loginForm.value);
+    console.log(this.cadastroForm.value);
 
-    this.onSubmitLogin.emit(this.loginForm.value);
+    this.onSubmitCadastro.emit(this.cadastroForm.value);
   }
 
-  routerLinkFunciona(pag: string) {
-    const url = pag;
-    this.router.navigate([url]);
-  }
 }
