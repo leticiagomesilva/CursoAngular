@@ -4,16 +4,16 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { NewMomentComponent } from './components/pages/new-moment/new-moment.component';
 import { EditMomentComponent } from './components/pages/edit-moment/edit-moment.component';
-import { LoginComponent } from './components/pages/login/login.component';
-import { authGuardsGuard } from './guards/auth-guards.guard';
-import { CadastroComponent } from './components/pages/cadastro/cadastro.component';
+import { ServicosComponent } from './components/pages/servicos/servicos.component';
+import { ContatoComponent } from './components/pages/contato/contato.component';
+
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [authGuardsGuard], data: { acesso: 'ADMIN, USER'} },
-  { path: '', component: LoginComponent},
-  { path: 'about', component: AboutComponent, canActivate: [authGuardsGuard], data: { acesso: 'USER'}  },
-  { path: 'moments/new', component: NewMomentComponent, canActivate: [authGuardsGuard], data: { acesso: 'USER'}  },
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'moments/new', component: NewMomentComponent },
   { path: 'moments/:id', component: MomentComponent },
   { path: 'moments/edit/:id', component: EditMomentComponent },
-  { path: 'cadastro', component: CadastroComponent },
+  { path: 'servicos', component: ServicosComponent },
+  { path: 'contato', component: ContatoComponent },
 ];

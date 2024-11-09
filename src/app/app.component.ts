@@ -1,4 +1,3 @@
-import { CadastroComponent } from './components/pages/cadastro/cadastro.component';
 import { MomentComponent } from './components/pages/moment/moment.component';
 import { FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
@@ -15,11 +14,12 @@ import { NgOptimizedImage } from '@angular/common';
 import { MomentFormComponent } from './components/moment-form/moment-form.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { EditMomentComponent } from './components/pages/edit-moment/edit-moment.component';
-import { LoginComponent } from './components/pages/login/login.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
-import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { ServicosComponent } from './components/pages/servicos/servicos.component';
+import { ContatoComponent } from './components/pages/contato/contato.component';
+
 
 @Component({
   selector: 'app-root',
@@ -28,8 +28,7 @@ import { CadastroFormComponent } from './components/cadastro-form/cadastro-form.
     FooterComponent, HomeComponent, AboutComponent, RouterLink,
     NewMomentComponent, NgOptimizedImage, MomentFormComponent,
     HttpClientModule, ReactiveFormsModule, FormsModule, MessagesComponent,
-    FontAwesomeModule, MomentComponent, EditMomentComponent,
-    LoginComponent, LoginFormComponent, CadastroComponent, CadastroFormComponent,],
+    FontAwesomeModule, MomentComponent, EditMomentComponent, MatIconModule, MatButtonModule, ServicosComponent, ContatoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [HttpClient, HttpClientModule],

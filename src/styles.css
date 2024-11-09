@@ -1,19 +1,19 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: Cambria;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
   color: #444;
 }
 
 a {
   text-decoration: none;
-  color: #444;
+  /* color: #444; */
   transition: 0.4s;
 }
 
 a:hover {
-  color: #dec129;
+  /* color: #154c79; */
 }
 
 /* FORM */
@@ -54,13 +54,13 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  color: #dec129;
-  border-color: #dec129;
+  color: #154c79;
+  border-color: #154c79;
   background-color: transparent;
 }
 
 .cadastro p:hover{
-  color: #dec129;
+  color: #154c79;
   transition: 0.4s;
 }
 

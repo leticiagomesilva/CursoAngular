@@ -3,6 +3,7 @@ nav {
   justify-content: space-between;
   padding: 1em;
   border-bottom: 1px solid #777;
+  background-color: #154c79;
 }
 
 .brand,
@@ -19,29 +20,22 @@ nav {
 
 .brand h2 {
   transition: 0.4s;
-}
-
-.brand:hover > h2 {
-  color: #dec129;
+  color: #efefef;
 }
 
 .links li {
   margin-right: 2em;
   list-style: none;
+  color: #efefef;
 }
 
 .links a {
   padding: 0.1em 0.3em;
+  color: #efefef;
 }
 
 a {
   cursor: pointer;
 }
 
-#add a {
-  color: #dec129;
-}
 
-#add a:hover {
-  background-color: #efefef;
-}

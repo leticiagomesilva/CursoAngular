@@ -1,31 +1,91 @@
-<div class="home-container">
-  <h1>Veja o que estão compartilhando</h1>
-  <div class="search-container">
-    <form>
-      <fa-icon [icon]="faSearch"></fa-icon>
-      <input type="text" placeholder="Ou busque por um momento..." (input)="search($event)">
-    </form>
-  </div>
-  <div>
-    @if (moments.length > 0) {
-      <div class="moments-container">
-        <div class="moment" >
-          @for ( moment of moments; track $index) {
-            <div class="content">
-            <img src="{{ baseApiUrl }}uploads/{{ moment.image }}" alt="{{ moment.title }}">
-            <h3> {{ moment.title }} </h3>
-            <p class="date">Em: {{ moment.created_at }} </p>
-            <p>Comentários: {{ moment.comments!.length }} </p>
-            <p><a (click)="routerLinkFunciona(moment.id)">Detalhes</a></p>
-          </div>
-          }
-        </div>
-      </div>
-    }
-    @else {
-      <ng-template #noMoments>
-        <h1>Não há Momentos cadastrados!</h1>
-      </ng-template>
-    }
-  </div>
-</div>
+<main class="container">
+  <section class="box">
+    <h2 class="title">
+      Bem Vindo ao site da ExBV Arena Boa Viagem!
+    </h2>
+    <p class="little-text">
+      Somos uma plataforma associada a Arena Boa Viagem de aluguel de quadras. Se você procura jogar tennis, beach tennis, padel, ou qualquer outro esporte, temos a quadra perfeita para você.
+    </p>
+    <img src="beach-tennis.jpg"/>
+    <button (click)="redirectSobre('about')">Sobre</button>
+  </section>
+
+  <section class="">
+   <h2 class="text-quadras">
+    Nossas Quadras
+   </h2>
+   <div class="container2">
+
+    <div class="card">
+
+     <img height="300" src="quadraBT.jpg" width="400"/>
+     <h3>Beach Tennis - Tênis</h3>
+     <p>
+      Serão 12 quadras de Beach Tennis e 02 de Tênis distribuídas no complexo esportivo para aluguel avulso e aulas com os nossa equipe de professores. 
+     </p>
+     <a (click)="redirectSobre('servicos')">Saiba mais</a>
+    </div>
+
+    <div class="card">
+     <img height="300" src="volei.jpg" width="400"/>
+     <h3>
+      Volleyball - Footvolley
+     </h3>
+     <p class="mb-2">
+      Nossas quadras são adaptáveis para uso das modalidades de acordo com necessidade do mensalista ou locatário.
+    </p>
+     <a (click)="redirectSobre('servicos')">Saiba mais</a>
+    </div>
+
+    <div class="card">
+     <img height="300" src="footmesa.jpg" width="400"/>
+     <h3>
+      Footmesa  -  Beach Training
+     </h3>
+     <p class="mb-2">
+      A arena disponibiliza mesas para a prática do Footmesa e também oferece a modalidade de Beach Training Funcional para seus usuários.
+     </p>
+     <a (click)="redirectSobre('servicos')">Saiba mais</a>
+    </div>
+
+   </div>
+  </section>
+
+  <section class="">
+   <h2 class="text-quadras">
+    Últimas Notícias
+   </h2>
+
+   <div class="container2">
+
+    <div class="card">
+     <img height="300" src="torneio.png" width="400"/>
+     <h3>Novo Torneio de Beach Tennis</h3>
+     <p class="mb-2">
+      Estamos felizes em anunciar um novo torneio que começa no mês de Dezembro. Registre seu time agora!
+     </p>
+     <a (click)="redirectSobre('servicos')">Registrar-se</a>
+    </div>
+
+    <div class="card">
+     <img height="300" src="cross.jpg" width="400"/>
+     <h3>Awaken Beach CrossFit</h3>
+     <p class="mb-2">
+      A Arena Boa Viagem conta com uma das mais conceituadas marcas de atividades ligadas ao Crossfit e suas demais modalidades, a Awaken Beach!
+     </p>
+     <a (click)="redirectSobre('servicos')">Saiba mais</a>
+    </div>
+
+    <div class="card">
+     <img height="300" src="desconto.jpg" width="400"/>
+     <h3>Desconto Especial</h3>
+     <p class="mb-2">
+      Alunos que indicam a arena para seus conhecidos ganham um desconto!
+     </p>
+     <a (click)="redirectSobre('servicos')">Saiba mais</a>
+    </div>
+
+   </div>
+  </section>
+ </main>
+ <img src="logo.png" alt="inicio">

@@ -1,9 +1,33 @@
 .about {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 2em;
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6f6;
+  /* border: 5px solid red; */
+}
+
+.title{
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* border: 5px solid red; */
+  background-color: #f6f6f6;
+}
+
+.text {
+  width: 500px;
+  /* border: 5px solid red; */
+  margin-left: 100px;
+}
+
+.img{
+  width: 500px;
+  /* border: 5px solid red; */
 }
 
 h2,
