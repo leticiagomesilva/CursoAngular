@@ -6,6 +6,8 @@ import { NewMomentComponent } from './components/pages/new-moment/new-moment.com
 import { EditMomentComponent } from './components/pages/edit-moment/edit-moment.component';
 import { ServicosComponent } from './components/pages/servicos/servicos.component';
 import { ContatoComponent } from './components/pages/contato/contato.component';
+import { CadastroComponent } from './components/pages/cadastro/cadastro.component';
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 
 
 export const routes: Routes = [
@@ -16,4 +18,6 @@ export const routes: Routes = [
   { path: 'moments/edit/:id', component: EditMomentComponent },
   { path: 'servicos', component: ServicosComponent },
   { path: 'contato', component: ContatoComponent },
+  { path: 'cadastro', component: CadastroComponent },
+  { path: 'dashboard', component: DashboardComponent },
 ];

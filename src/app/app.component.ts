@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ServicosComponent } from './components/pages/servicos/servicos.component';
 import { ContatoComponent } from './components/pages/contato/contato.component';
+import { CadastroComponent } from './components/pages/cadastro/cadastro.component';
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 
 
 @Component({
@@ -28,7 +30,9 @@ import { ContatoComponent } from './components/pages/contato/contato.component';
     FooterComponent, HomeComponent, AboutComponent, RouterLink,
     NewMomentComponent, NgOptimizedImage, MomentFormComponent,
     HttpClientModule, ReactiveFormsModule, FormsModule, MessagesComponent,
-    FontAwesomeModule, MomentComponent, EditMomentComponent, MatIconModule, MatButtonModule, ServicosComponent, ContatoComponent],
+    FontAwesomeModule, MomentComponent, EditMomentComponent, MatIconModule, 
+    MatButtonModule, ServicosComponent, ContatoComponent, CadastroComponent,
+    DashboardComponent, ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [HttpClient, HttpClientModule],
