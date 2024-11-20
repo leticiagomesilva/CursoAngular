@@ -9,8 +9,8 @@ import { Response } from '../Response';
   providedIn: 'root'
 })
 export class CommentService {
-  private baseApiUrl = environment.baseApiUrl;
-  private apiUrl = `${this.baseApiUrl}api/moments`
+  private baseUrl = environment.baseApiUrl;
+  private apiUrl = `${this.baseUrl}api/moments`
 
   constructor(private http: HttpClient) { }
 

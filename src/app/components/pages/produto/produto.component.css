@@ -1,0 +1,190 @@
+.sidebar {
+    width: 320px;
+    height: 100vh;
+    background-color: #154c79;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    color: #ecf0f1;
+}
+.sidebar h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: white;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar ul li {
+    padding: 15px 20px;
+    cursor: pointer;
+    color: white;
+}
+.sidebar ul li:hover {
+    background-color: #34495e;
+}
+.sidebar ul li i {
+    margin-right: 10px;
+}
+
+.main-content {
+    margin-left: 320px;
+    padding: 20px;
+}
+
+.filtro_produto {
+  margin-bottom: 15px;
+  display: flex; /* Organiza os elementos em linha */
+  align-items: center; /* Alinha os elementos verticalmente ao centro */
+  border: 1px solid #ccc; /* Adiciona uma borda ao redor do filtro */
+  padding: 10px; /* Adiciona um espaço interno */
+  border-radius: 5px; /* Arredonda as bordas */
+}
+
+.filtro_produto label {
+  margin-right: 10px; /* Cria um espaço entre o label e o input */
+}
+
+.filtro_produto input {
+  flex: 1; /* Faz o input ocupar o espaço restante */
+  padding: 5px;
+  border: none; /* Remove a borda do input */
+  border-bottom: 1px solid #ccc; /* Adiciona uma borda inferior */
+  border-radius: 3px;
+}
+
+.filtro_produto button {
+  padding: 5px 10px;
+  background-color: #007BFF; /* Cor verde padrão */
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  thead {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  thead th {
+    padding: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #f0f0f0;
+  }
+  
+  tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  td {
+    padding: 10px 12px;
+  }
+  
+  td button {
+    margin-right: 5px;
+  }
+  
+  button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button.btn-primary {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  button.btn-danger {
+    background-color: #DC3545;
+    color: white;
+  }
+  
+  button.btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  .form-container {
+    /* Centering the form */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px; /* Adjust height as needed */
+    flex-direction: column;
+
+    /* Styling the form */
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 500px;
+    background-color: #f0f0f0; /* Light background for better readability */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.form-container h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-container input {
+    width: 100%; 
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #ddd;
+}
+
+.form-container button.btn-primary {
+    background-color: #007BFF;
+    color: white;
+}
+
+.form-container button.btn-secondary {
+    background-color: #ccc;
+    color: black;
+}

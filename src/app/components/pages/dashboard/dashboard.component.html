@@ -3,9 +3,16 @@
         Dashboard ExBV Arena Boa Viagem
     </h2>
     <ul>
-        <li><i></i>Dashboard</li>
-        <li><i></i>Reservas</li>
-        <li><i></i>Clientes</li>
+        <li (click)="routerLinkFunciona('dashboard')"><i></i>Dashboard</li>
+        <li (click)="routerLinkFunciona('dashboard/alunos')"><i></i>Alunos</li>
+        <li (click)="routerLinkFunciona('dashboard/pessoas')"><i></i>Pessoas</li>
+        <li (click)="routerLinkFunciona('dashboard/reservas')"><i></i>Reservas</li>
+        <li (click)="routerLinkFunciona('dashboard/turmas')"><i></i>Turmas</li>
+        <li (click)="routerLinkFunciona('dashboard/quadras')"><i></i>Quadras</li>
+        <li (click)="routerLinkFunciona('dashboard/produtos')"><i></i>Produtos</li>
+        <li (click)="routerLinkFunciona('dashboard/campeonatos')"><i></i>Campeonatos</li>
+        <li (click)="routerLinkFunciona('dashboard/show')"><i></i>Show</li>
+        <li (click)="routerLinkFunciona('dashboard/funcionarios')"><i></i>Funcionários</li>
         <li (click)="routerLinkFunciona('')"><i></i>Sair</li>
     </ul>
 </div>
@@ -29,7 +36,7 @@
                     <p>15</p>
                 </div>
                 <div>
-                    <h4>Clientes Ativos</h4>
+                    <h4>Alunos Cadastrados</h4>
                     <p>120</p>
                 </div>
                 <div>
@@ -40,25 +47,25 @@
         </div>
 
         <div class="card">
-            <h3>Próximas Reservas</h3>
+            <!-- <h3>Próximas Reservas</h3>
             <ul>
             <li>10:00 - Quadra 1 - João Silva</li>
             <li>11:00 - Quadra 2 - Maria Oliveira</li>
             <li>12:00 - Quadra 3 - Pedro Santos</li>
             <li>13:00 - Quadra 4 - Ana Costa</li>
             <li>14:00 - Quadra 5 - Lucas Lima</li>
-            </ul>
+            </ul> -->
         </div>
 
         <div class="card">
-            <h3>Últimos Clientes</h3>
+            <!-- <h3>Últimos Clientes</h3>
             <ul>
             <li>João Silva</li>
             <li>Maria Oliveira</li>
             <li>Pedro Santos</li>
             <li>Ana Costa</li>
             <li>Lucas Lima</li>
-            </ul>
+            </ul> -->
         </div>
     </div>
 </div>

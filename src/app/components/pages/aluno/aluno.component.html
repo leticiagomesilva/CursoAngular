@@ -1,0 +1,77 @@
+<div class="sidebar">
+    <h2>
+        Dashboard ExBV Arena Boa Viagem
+    </h2>
+    <ul>
+        <li (click)="routerLinkFunciona('dashboard')"><i></i>Dashboard</li>
+        <li (click)="routerLinkFunciona('dashboard/alunos')"><i></i>Alunos</li>
+        <li (click)="routerLinkFunciona('dashboard/pessoas')"><i></i>Pessoas</li>
+        <li (click)="routerLinkFunciona('dashboard/reservas')"><i></i>Reservas</li>
+        <li (click)="routerLinkFunciona('dashboard/turmas')"><i></i>Turmas</li>
+        <li (click)="routerLinkFunciona('dashboard/quadras')"><i></i>Quadras</li>
+        <li (click)="routerLinkFunciona('dashboard/produtos')"><i></i>Produtos</li>
+        <li (click)="routerLinkFunciona('dashboard/campeonatos')"><i></i>Campeonatos</li>
+        <li (click)="routerLinkFunciona('dashboard/show')"><i></i>Show</li>
+        <li (click)="routerLinkFunciona('dashboard/funcionarios')"><i></i>Funcionários</li>
+        <li (click)="routerLinkFunciona('')"><i></i>Sair</li>
+    </ul>
+</div>
+
+<div class="main-content">
+
+    <div class="filtro-aluno">
+        <label for="matricula">Matrícula:</label>
+        <input
+          type="number"
+          id="matricula"
+          [(ngModel)]="matricula"
+          placeholder="Digite a matrícula"
+        />
+        <button (click)="buscarAlunoPorMatricula(matricula)">Buscar Aluno</button>
+    </div>
+      
+
+    <table border="1">
+        <thead>
+          <tr>
+            <th>Matrícula</th>
+            <th>CPF do Aluno</th>
+            <th>Deletar Aluno</th>
+          </tr>
+        </thead>
+        <tbody>
+            @for(aluno of alunosFiltrados; track $index){
+                <tr>
+                  <td style="text-decoration: underline; color: blue; cursor: pointer;">{{ aluno.matricula }}</td>
+                  <td>{{ aluno.cpf_aluno }}</td>
+                  <td> <button type="button" class="btn btn-primary" (click)="deletarAluno(aluno.matricula)">Deletar Aluno</button> </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="botoes">
+        <button type="button" class="btn btn-primary" (click)="toggleForm()">
+          {{ showForm ? 'Cancelar' : 'Adicionar Aluno' }}
+        </button>
+    </div>
+
+    @if(showForm){
+        <div class="form-container">
+            <h3>Adicionar Novo Aluno</h3>
+            <form (ngSubmit)="adicionarAluno()">
+              <div>
+                <label for="matricula">Matrícula:</label>
+                <input type="number" [(ngModel)]="matricula" name="matricula" required>
+              </div>
+              <div>
+                <label for="cpf_aluno">CPF:</label>
+                <input type="text" [(ngModel)]="cpf_aluno" name="cpf_aluno" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Salvar</button>
+              <button type="button" class="btn btn-secondary" (click)="resetForm()">Limpar</button>
+            </form>
+        </div>
+    }
+
+</div>

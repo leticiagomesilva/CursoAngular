@@ -1,0 +1,97 @@
+<div class="sidebar">
+    <h2>
+        Dashboard ExBV Arena Boa Viagem
+    </h2>
+    <ul>
+        <li (click)="routerLinkFunciona('dashboard')"><i></i>Dashboard</li>
+        <li (click)="routerLinkFunciona('dashboard/alunos')"><i></i>Alunos</li>
+        <li (click)="routerLinkFunciona('dashboard/pessoas')"><i></i>Pessoas</li>
+        <li (click)="routerLinkFunciona('dashboard/reservas')"><i></i>Reservas</li>
+        <li (click)="routerLinkFunciona('dashboard/turmas')"><i></i>Turmas</li>
+        <li (click)="routerLinkFunciona('dashboard/quadras')"><i></i>Quadras</li>
+        <li (click)="routerLinkFunciona('dashboard/produtos')"><i></i>Produtos</li>
+        <li (click)="routerLinkFunciona('dashboard/campeonatos')"><i></i>Campeonatos</li>
+        <li (click)="routerLinkFunciona('dashboard/show')"><i></i>Show</li>
+        <li (click)="routerLinkFunciona('dashboard/funcionarios')"><i></i>Funcionários</li>
+        <li (click)="routerLinkFunciona('')"><i></i>Sair</li>
+    </ul>
+</div>
+
+<div class="main-content">
+
+    <div class="filtro_reserva">
+        <label for="pessoa_cpf">CPF da Pessoa:</label>
+        <input type="text" id="pessoa_cpf" [(ngModel)]="pessoa_cpf" placeholder="Buscar por CPF"/>
+        <!-- <button (click)="buscarReservaPorNumero(numero_quadra)">Buscar por Número da Quadra</button> -->
+        <button (click)="buscarReservaPorCpf(pessoa_cpf)">Buscar por CPF</button>
+        <!-- <button (click)="buscarReservaPorData()">Buscar por Data</button> -->
+    </div>
+      
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Número da Quadra</th>
+                <th>CPF da Pessoa</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Itens</th>
+                <th>Valor</th>
+                <th>Deletar Reserva</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(reserva of reservasFiltradas; track $index){
+                <tr>
+                    <td style="text-decoration: underline; color: blue; cursor: pointer;">{{ reserva.numero_quadra }}</td>
+                    <td>{{ reserva.pessoa_cpf }}</td>
+                    <td>{{ reserva.data }}</td>
+                    <td>{{ reserva.horario }}</td>
+                    <td>{{ reserva.itens }}</td>
+                    <td>{{ reserva.valor }}</td>
+                    <td> <button type="button" class="btn btn-primary" (click)="deletarReserva(reserva.numero_quadra, reserva.pessoa_cpf, reserva.data, reserva.horario)"> Deletar Reserva</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+      
+      <div class="botoes">
+        <button type="button" class="btn btn-primary" (click)="toggleForm()">
+          {{ showForm ? 'Cancelar' : 'Realizar Reserva' }}
+        </button>
+      </div>
+      
+      @if(showForm){
+          <div class="form-container">
+            <h3>Realizar Nova Reserva</h3>
+            <form (ngSubmit)="adicionarReserva()">
+                <div>
+                    <label for="numero_quadra">Número da Quadra:</label>
+                    <input type="number" [(ngModel)]="numero_quadra" name="numero_quadra" required />
+                </div>
+                <div>
+                    <label for="pessoa_cpf">CPF da Pessoa:</label>
+                    <input type="text" [(ngModel)]="pessoa_cpf" name="pessoa_cpf" required />
+                </div>
+                <div>
+                    <label for="data">Data:</label>
+                    <input type="text" [(ngModel)]="data" name="data" required />
+                </div>
+                <div>
+                    <label for="horario">Horário:</label>
+                    <input type="text" [(ngModel)]="horario" name="horario" required />
+                </div>
+                <div>
+                    <label for="itens">Itens:</label>
+                    <input type="text" [(ngModel)]="itens" name="itens" />
+                </div>
+                <div>
+                    <label for="valor">Valor:</label>
+                    <input type="number" [(ngModel)]="valor" name="valor" required />
+                </div>
+              <button type="submit" class="btn btn-primary">Salvar</button>
+              <button type="button" class="btn btn-secondary" (click)="resetForm()">Limpar</button>
+            </form>
+        </div>
+      }
+
+</div>

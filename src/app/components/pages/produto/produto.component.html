@@ -1,0 +1,120 @@
+<div class="sidebar">
+    <h2>
+        Dashboard ExBV Arena Boa Viagem
+    </h2>
+    <ul>
+        <li (click)="routerLinkFunciona('dashboard')"><i></i>Dashboard</li>
+        <li (click)="routerLinkFunciona('dashboard/alunos')"><i></i>Alunos</li>
+        <li (click)="routerLinkFunciona('dashboard/pessoas')"><i></i>Pessoas</li>
+        <li (click)="routerLinkFunciona('dashboard/reservas')"><i></i>Reservas</li>
+        <li (click)="routerLinkFunciona('dashboard/turmas')"><i></i>Turmas</li>
+        <li (click)="routerLinkFunciona('dashboard/quadras')"><i></i>Quadras</li>
+        <li (click)="routerLinkFunciona('dashboard/produtos')"><i></i>Produtos</li>
+        <li (click)="routerLinkFunciona('dashboard/campeonatos')"><i></i>Campeonatos</li>
+        <li (click)="routerLinkFunciona('dashboard/show')"><i></i>Show</li>
+        <li (click)="routerLinkFunciona('dashboard/funcionarios')"><i></i>Funcionários</li>
+        <li (click)="routerLinkFunciona('')"><i></i>Sair</li>
+    </ul>
+</div>
+
+<div class="main-content">
+
+    <div class="filtro_produto">
+        <label for="id_produto">ID do Produto:</label>
+        <input
+          type="number"
+          id="id_produto"
+          [(ngModel)]="id_produto"
+          placeholder="Digite o ID do produto"
+        />
+        <button (click)="buscarProdutoPorId(id_produto)">Buscar Produto</button>
+    </div>
+      
+    <table border="1">
+        <thead>
+            <tr>
+            <th>ID do Produto</th>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th>Preço</th>
+            <th>Editar Produto</th>
+            <th>Deletar Produto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(produto of produtosFiltrados; track $index){
+                <tr>
+                    <td style="text-decoration: underline; color: blue; cursor: pointer;">{{ produto.id_produto }}</td>
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.tipo }}</td>
+                    <td>{{ produto.preco }}</td>
+                    <td> <button type="button" class="btn btn-primary" (click)="toggleFormEdit(produto.id_produto)">Editar Produto</button></td>
+                    <td> <button type="button" class="btn btn-primary" (click)="deletarProduto(produto.id_produto)">Deletar Produto</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+      
+      <div class="botoes">
+        <button type="button" class="btn btn-primary" (click)="toggleForm()">
+          {{ showForm ? 'Cancelar' : 'Adicionar Produto' }}
+        </button>
+      </div>
+      
+      @if(showForm){
+          <div class="form-container">
+            <h3>Adicionar Novo Produto</h3>
+            <form (ngSubmit)="adicionarProduto()">
+              <div>
+                <label for="id_produto">ID do Produto:</label>
+                <input type="number" [(ngModel)]="id_produto" name="id_produto" required />
+              </div>
+              <div>
+                <label for="nome">Nome:</label>
+                <input type="text" [(ngModel)]="nome" name="nome" required />
+              </div>
+              <div>
+                <label for="tipo">Tipo:</label>
+                <input type="text" [(ngModel)]="tipo" name="tipo" required />
+              </div>
+              <div>
+                <label for="preco">Preço:</label>
+                <input type="number" [(ngModel)]="preco" name="preco" required />
+              </div>
+              <button type="submit" class="btn btn-primary">Salvar</button>
+              <button type="button" class="btn btn-secondary" (click)="resetForm()">
+                Limpar
+              </button>
+            </form>
+        </div>
+      }
+
+      @if(isUpdating){
+        <div class="form-container">
+            <h3>Editar Produto</h3>
+            <form (ngSubmit)="editarProduto()">
+              <div>
+                <label for="id_produto">ID do Produto:</label>
+                <input type="number" [(ngModel)]="id_produto_edit" name="id_produto" [readonly]="isUpdating" />
+              </div>
+              
+              <div>
+                <label for="nome">Nome do Produto:</label>
+                <input type="text" [(ngModel)]="nome" name="nome" required />
+              </div>
+              
+              <div>
+                <label for="tipo">Tipo do Produto:</label>
+                <input type="text" [(ngModel)]="tipo" name="tipo" required />
+              </div>
+              
+              <div>
+                <label for="preco">Preço do Produto:</label>
+                <input type="number" [(ngModel)]="preco" name="preco" required />
+              </div>
+              <button type="submit" class="btn btn-primary">Salvar</button>
+              <button type="button" class="btn btn-secondary" (click)="resetForm()">Limpar</button>
+            </form>
+        </div>
+    }
+</div>

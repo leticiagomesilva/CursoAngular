@@ -1,0 +1,126 @@
+<div class="sidebar">
+    <h2>
+        Dashboard ExBV Arena Boa Viagem
+    </h2>
+    <ul>
+        <li (click)="routerLinkFunciona('dashboard')"><i></i>Dashboard</li>
+        <li (click)="routerLinkFunciona('dashboard/alunos')"><i></i>Alunos</li>
+        <li (click)="routerLinkFunciona('dashboard/pessoas')"><i></i>Pessoas</li>
+        <li (click)="routerLinkFunciona('dashboard/reservas')"><i></i>Reservas</li>
+        <li (click)="routerLinkFunciona('dashboard/turmas')"><i></i>Turmas</li>
+        <li (click)="routerLinkFunciona('dashboard/quadras')"><i></i>Quadras</li>
+        <li (click)="routerLinkFunciona('dashboard/produtos')"><i></i>Produtos</li>
+        <li (click)="routerLinkFunciona('dashboard/campeonatos')"><i></i>Campeonatos</li>
+        <li (click)="routerLinkFunciona('dashboard/show')"><i></i>Show</li>
+        <li (click)="routerLinkFunciona('dashboard/funcionarios')"><i></i>Funcionários</li>
+        <li (click)="routerLinkFunciona('')"><i></i>Sair</li>
+    </ul>
+</div>
+
+<div class="main-content">
+
+    <div class="filtro_quadra">
+        <label for="numero_quadra">Número da Quadra:</label>
+        <input
+        type="number"
+        id="numero_quadra"
+        [(ngModel)]="numero_quadra"
+        placeholder="Digite o número da quadra"
+        />
+        <button (click)="buscarQuadraPorNumero(numero_quadra)">Buscar Quadra</button>
+    </div>
+
+    <!-- <div class="filtro_modalidade">
+        <label for="modalidadeSelect">Filtrar por Modalidade</label>
+        <select id="modalidadeSelect" [(ngModel)]="selectedModalidade" (change)="filtrarPorModalidade()">
+          <option value="">Todas</option>
+          @for(modalidade of modalidades; track $index){
+            <option [value]="modalidade">{{ modalidade }}</option>
+          }
+        </select>
+    </div> -->
+      
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Número da Quadra</th>
+                <th>Modalidade 1</th>
+                <th>Modalidade 2</th>
+                <th>Modalidade 3</th>
+                <th>Editar Quadra</th>
+                <th>Deletar Quadra</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(quadra of quadrasFiltradas; track $index){
+                <tr>
+                    <td style="text-decoration: underline; color: blue; cursor: pointer;">{{ quadra.numero_quadra }}</td>
+                    <td>{{ quadra.modalidade_1 }}</td>
+                    <td>{{ quadra.modalidade_2 }}</td>
+                    <td>{{ quadra.modalidade_3 }}</td>
+                    <td> <button type="button" class="btn btn-primary" (click)="editarQuadra(quadra.numero_quadra, quadra.modalidade_1, quadra.modalidade_2, quadra.modalidade_3)">Editar Quadra</button></td>
+                    <td> <button type="button" class="btn btn-primary" (click)="deletarQuadra(quadra.numero_quadra)">Deletar Quadra</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+      
+      <div class="botoes">
+        <button type="button" class="btn btn-primary" (click)="toggleForm()">
+          {{ showForm ? 'Cancelar' : 'Adicionar Quadra' }}
+        </button>
+      </div>
+      
+      @if(showForm){
+          <div class="form-container">
+            <h3>Adicionar Nova Quadra</h3>
+            <form (ngSubmit)="adicionarQuadra()">
+                <div>
+                    <label for="numero_quadra">Número da Quadra:</label>
+                    <input type="number" [(ngModel)]="numero_quadra" name="numero_quadra" required />
+                </div>
+                <div>
+                    <label for="modalidade_1">Modalidade 1:</label>
+                    <input type="text" [(ngModel)]="modalidade_1" name="modalidade_1" required />
+                </div>
+                <div>
+                    <label for="modalidade_2">Modalidade 2:</label>
+                    <input type="text" [(ngModel)]="modalidade_2" name="modalidade_2" />
+                </div>
+                <div>
+                    <label for="modalidade_3">Modalidade 3:</label>
+                    <input type="text" [(ngModel)]="modalidade_3" name="modalidade_3" />
+                </div>
+              <button type="submit" class="btn btn-primary">Salvar</button>
+              <button type="button" class="btn btn-secondary" (click)="resetForm()">Limpar</button>
+            </form>
+        </div>
+      }
+
+      @if(isUpdating){
+        <div class="form-container">
+          <h3>Editar Quadra</h3>
+          <form (ngSubmit)="atualizarQuadra()">
+              <div>
+                  <label for="numero_quadra">Número da Quadra:</label>
+                  <input type="number" [(ngModel)]="numero_quadra" name="numero_quadra" required />
+              </div>
+              <div>
+                  <label for="modalidade_1">Modalidade 1:</label>
+                  <input type="text" [(ngModel)]="modalidade_1" name="modalidade_1" required />
+              </div>
+              <div>
+                  <label for="modalidade_2">Modalidade 2:</label>
+                  <input type="text" [(ngModel)]="modalidade_2" name="modalidade_2" />
+              </div>
+              <div>
+                  <label for="modalidade_3">Modalidade 3:</label>
+                  <input type="text" [(ngModel)]="modalidade_3" name="modalidade_3" />
+              </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="button" class="btn btn-secondary" (click)="resetForm()">Limpar</button>
+          </form>
+      </div>
+    }
+
+</div>

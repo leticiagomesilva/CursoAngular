@@ -21,7 +21,16 @@ import { ServicosComponent } from './components/pages/servicos/servicos.componen
 import { ContatoComponent } from './components/pages/contato/contato.component';
 import { CadastroComponent } from './components/pages/cadastro/cadastro.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
-
+import { AlunoComponent } from './components/pages/aluno/aluno.component';
+import { PessoaComponent } from './components/pages/pessoa/pessoa.component';
+import { ReservaComponent } from './components/pages/reserva/reserva.component';
+import { TurmaComponent } from './components/pages/turma/turma.component';
+import { QuadraComponent } from './components/pages/quadra/quadra.component';
+import { ProdutoComponent } from './components/pages/produto/produto.component';
+import { CampeonatosComponent } from './components/pages/campeonatos/campeonatos.component';
+import { ShowComponent } from './components/pages/show/show.component';
+import { FuncionarioComponent } from './components/pages/funcionario/funcionario.component';
+import { FormAdicionarComponent } from './components/pages/form-adicionar/form-adicionar.component';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +41,9 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
     HttpClientModule, ReactiveFormsModule, FormsModule, MessagesComponent,
     FontAwesomeModule, MomentComponent, EditMomentComponent, MatIconModule, 
     MatButtonModule, ServicosComponent, ContatoComponent, CadastroComponent,
-    DashboardComponent, ],
+    DashboardComponent, AlunoComponent, PessoaComponent, ReservaComponent,
+    TurmaComponent, QuadraComponent, ProdutoComponent, CampeonatosComponent, 
+    ShowComponent, FuncionarioComponent, FormAdicionarComponent ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [HttpClient, HttpClientModule],
