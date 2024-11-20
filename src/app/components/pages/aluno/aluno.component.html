@@ -7,12 +7,12 @@
         <li (click)="routerLinkFunciona('dashboard/alunos')"><i></i>Alunos</li>
         <li (click)="routerLinkFunciona('dashboard/pessoas')"><i></i>Pessoas</li>
         <li (click)="routerLinkFunciona('dashboard/reservas')"><i></i>Reservas</li>
-        <li (click)="routerLinkFunciona('dashboard/turmas')"><i></i>Turmas</li>
-        <li (click)="routerLinkFunciona('dashboard/quadras')"><i></i>Quadras</li>
+        <li (click)="routerLinkFunciona('dashboard/compra')"><i></i>Compras</li>
         <li (click)="routerLinkFunciona('dashboard/produtos')"><i></i>Produtos</li>
-        <li (click)="routerLinkFunciona('dashboard/campeonatos')"><i></i>Campeonatos</li>
-        <li (click)="routerLinkFunciona('dashboard/show')"><i></i>Show</li>
-        <li (click)="routerLinkFunciona('dashboard/funcionarios')"><i></i>Funcionários</li>
+        <li (click)="routerLinkFunciona('dashboard/estoque')"><i></i>Estoque</li>
+        <li (click)="routerLinkFunciona('dashboard/quadras')"><i></i>Quadras</li>
+        <li (click)="routerLinkFunciona('dashboard/turmas')"><i></i>Aulas</li>
+        <li (click)="routerLinkFunciona('dashboard/indica')"><i></i>Indica</li>
         <li (click)="routerLinkFunciona('')"><i></i>Sair</li>
     </ul>
 </div>
@@ -20,21 +20,20 @@
 <div class="main-content">
 
     <div class="filtro-aluno">
-        <label for="matricula">Matrícula:</label>
+        <label for="cpf_aluno">Buscar por CPF:</label>
         <input
           type="number"
-          id="matricula"
-          [(ngModel)]="matricula"
-          placeholder="Digite a matrícula"
+          id="cpf_aluno"
+          [(ngModel)]="cpf_aluno"
+          placeholder="Digite o CPF"
         />
-        <button (click)="buscarAlunoPorMatricula(matricula)">Buscar Aluno</button>
+        <button (click)="buscarAlunoPorCpf(cpf_aluno)">Buscar Aluno</button>
     </div>
       
 
     <table border="1">
         <thead>
           <tr>
-            <th>Matrícula</th>
             <th>CPF do Aluno</th>
             <th>Deletar Aluno</th>
           </tr>
@@ -42,9 +41,8 @@
         <tbody>
             @for(aluno of alunosFiltrados; track $index){
                 <tr>
-                  <td style="text-decoration: underline; color: blue; cursor: pointer;">{{ aluno.matricula }}</td>
                   <td>{{ aluno.cpf_aluno }}</td>
-                  <td> <button type="button" class="btn btn-primary" (click)="deletarAluno(aluno.matricula)">Deletar Aluno</button> </td>
+                  <td> <button type="button" class="btn btn-primary" (click)="deletarAluno(aluno.cpf_aluno)">Deletar Aluno</button> </td>
                 </tr>
             }
         </tbody>
@@ -61,12 +59,36 @@
             <h3>Adicionar Novo Aluno</h3>
             <form (ngSubmit)="adicionarAluno()">
               <div>
-                <label for="matricula">Matrícula:</label>
-                <input type="number" [(ngModel)]="matricula" name="matricula" required>
+                <label for="cpf">CPF:</label>
+                <input type="text" [(ngModel)]="cpf" name="cpf" required />
               </div>
               <div>
-                <label for="cpf_aluno">CPF:</label>
-                <input type="text" [(ngModel)]="cpf_aluno" name="cpf_aluno" required>
+                <label for="nome">Nome:</label>
+                <input type="text" [(ngModel)]="nome" name="nome" required />
+              </div>
+              <div>
+                <label for="cidade">Cidade:</label>
+                <input type="text" [(ngModel)]="cidade" name="cidade" required />
+              </div>
+              <div>
+                <label for="bairro">Bairro:</label>
+                <input type="text" [(ngModel)]="bairro" name="bairro" required />
+              </div>
+              <div>
+                <label for="rua">Rua:</label>
+                <input type="text" [(ngModel)]="rua" name="rua" required />
+              </div>
+              <div>
+                <label for="cep">CEP:</label>
+                <input type="text" [(ngModel)]="cep" name="cep" required />
+              </div>
+              <div>
+                <label for="telefone_1">Telefone 1:</label>
+                <input type="text" [(ngModel)]="telefone_1" name="telefone_1" required />
+              </div>
+              <div>
+                <label for="telefone_2">Telefone 2:</label>
+                <input type="text" [(ngModel)]="telefone_2" name="telefone_2" required />
               </div>
               <button type="submit" class="btn btn-primary">Salvar</button>
               <button type="button" class="btn btn-secondary" (click)="resetForm()">Limpar</button>

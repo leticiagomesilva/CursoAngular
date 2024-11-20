@@ -142,7 +142,7 @@ table {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px; /* Adjust height as needed */
+    height: 450px; /* Adjust height as needed */
     flex-direction: column;
 
     /* Styling the form */

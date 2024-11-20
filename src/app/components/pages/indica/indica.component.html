@@ -19,4 +19,23 @@
 
 <div class="main-content">
 
+    <h2 style="color: #007BFF;">Indicações de Alunos</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+            <th>CPF Indicador</th>
+            <th>CPF Indicado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(indicao of indicacoesFiltradas; track $index){
+                <tr>
+                <td>{{ indicao.cpf_indicador }}</td>
+                <td>{{ indicao.cpf_indicado }}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
 </div>

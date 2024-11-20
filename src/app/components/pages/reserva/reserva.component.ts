@@ -75,6 +75,7 @@ export class ReservaComponent {
   }
 
   buscarReservaPorCpf(cpf: string) {
+    console.log(cpf)
     if (!cpf) {
       this.reservasFiltradas = [...this.reservas];
     } else {

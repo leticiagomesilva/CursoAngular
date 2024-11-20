@@ -18,6 +18,9 @@ import { CampeonatosComponent } from './components/pages/campeonatos/campeonatos
 import { ShowComponent } from './components/pages/show/show.component';
 import { FuncionarioComponent } from './components/pages/funcionario/funcionario.component';
 import { FormAdicionarComponent } from './components/pages/form-adicionar/form-adicionar.component';
+import { EstoqueComponent } from './components/pages/estoque/estoque.component';
+import { ComprasComponent } from './components/pages/compras/compras.component';
+import { IndicaComponent } from './components/pages/indica/indica.component';
 
 
 export const routes: Routes = [
@@ -40,4 +43,7 @@ export const routes: Routes = [
   { path: 'dashboard/show', component: ShowComponent },
   { path: 'dashboard/funcionarios', component: FuncionarioComponent },
   { path: 'adicionar', component: FormAdicionarComponent },
+  { path: 'dashboard/estoque', component: EstoqueComponent },
+  { path: 'dashboard/compra', component: ComprasComponent },
+  { path: 'dashboard/indica', component: IndicaComponent },
 ];

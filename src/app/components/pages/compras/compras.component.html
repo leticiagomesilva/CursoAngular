@@ -1,0 +1,84 @@
+<div class="sidebar">
+    <h2>
+        Dashboard ExBV Arena Boa Viagem
+    </h2>
+    <ul>
+        <li (click)="routerLinkFunciona('dashboard')"><i></i>Dashboard</li>
+        <li (click)="routerLinkFunciona('dashboard/alunos')"><i></i>Alunos</li>
+        <li (click)="routerLinkFunciona('dashboard/pessoas')"><i></i>Pessoas</li>
+        <li (click)="routerLinkFunciona('dashboard/reservas')"><i></i>Reservas</li>
+        <li (click)="routerLinkFunciona('dashboard/compra')"><i></i>Compras</li>
+        <li (click)="routerLinkFunciona('dashboard/produtos')"><i></i>Produtos</li>
+        <li (click)="routerLinkFunciona('dashboard/estoque')"><i></i>Estoque</li>
+        <li (click)="routerLinkFunciona('dashboard/quadras')"><i></i>Quadras</li>
+        <li (click)="routerLinkFunciona('dashboard/turmas')"><i></i>Aulas</li>
+        <li (click)="routerLinkFunciona('dashboard/indica')"><i></i>Indica</li>
+        <li (click)="routerLinkFunciona('')"><i></i>Sair</li>
+    </ul>
+</div>
+
+<div class="main-content">
+
+    <div class="filtro-compras">
+        <label for="cpf_comprador">CPF do Comprador:</label>
+        <input
+            type="text"
+            id="cpf_comprador"
+            [(ngModel)]="cpf_comprador"
+            placeholder="Digite o CPF do comprador"
+        />
+        <button (click)="buscarComprasPorCpf(cpf_comprador)">Buscar Compras</button>
+      </div>
+
+      <table border="1">
+          <thead>
+              <tr>
+                <th>ID da Compra</th>
+                <th>CPF do Comprador</th>
+                <th>ID do Produto</th>
+                <th>Data</th>
+                <th>Deletar Compra</th>
+              </tr>
+          </thead>
+          <tbody>
+              @for(compra of comprasFiltradas; track $index){
+                  <tr>
+                    <td style="text-decoration: underline; color: blue; cursor: pointer;">{{ compra.id_compra }}</td>
+                    <td>{{ compra.cpf_comprador }}</td>
+                    <td>{{ compra.id_produto }}</td>
+                    <td>{{ compra.data }}</td>
+                    <td> <button type="button" class="btn btn-primary" (click)="deletarCompra(compra.id_compra)">Deletar Compra</button> </td>
+                  </tr>
+              }
+          </tbody>
+      </table>
+  
+    <div class="botoes">
+        <button type="button" class="btn btn-primary" (click)="toggleForm()">
+          {{ showForm ? 'Cancelar' : 'Adicionar Compra' }}
+        </button>
+    </div>
+
+    @if(showForm){
+        <div class="form-container">
+            <h3>Adicionar Compra</h3>
+            <form (ngSubmit)="adicionarCompra()">
+                <div>
+                    <label for="cpf_comprador">CPF do Comprador:</label>
+                    <input type="text" [(ngModel)]="cpf_comprador" name="cpf_comprador" required />
+                </div>
+                <div>
+                    <label for="id_produto">ID do Produto:</label>
+                    <input type="number" [(ngModel)]="id_produto" name="id_produto" required />
+                </div>
+                <div>
+                    <label for="data">Data:</label>
+                    <input type="text" [(ngModel)]="data" name="data" required />
+                </div>
+                  <button type="submit" class="btn btn-primary">Salvar</button>
+                  <button type="button" class="btn btn-secondary" (click)="resetForm()">Limpar</button>
+            </form>
+        </div>
+    }
+
+</div>

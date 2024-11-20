@@ -1,0 +1,98 @@
+<div class="sidebar">
+    <h2>
+        Dashboard ExBV Arena Boa Viagem
+    </h2>
+    <ul>
+        <li (click)="routerLinkFunciona('dashboard')"><i></i>Dashboard</li>
+        <li (click)="routerLinkFunciona('dashboard/alunos')"><i></i>Alunos</li>
+        <li (click)="routerLinkFunciona('dashboard/pessoas')"><i></i>Pessoas</li>
+        <li (click)="routerLinkFunciona('dashboard/reservas')"><i></i>Reservas</li>
+        <li (click)="routerLinkFunciona('dashboard/compra')"><i></i>Compras</li>
+        <li (click)="routerLinkFunciona('dashboard/produtos')"><i></i>Produtos</li>
+        <li (click)="routerLinkFunciona('dashboard/estoque')"><i></i>Estoque</li>
+        <li (click)="routerLinkFunciona('dashboard/quadras')"><i></i>Quadras</li>
+        <li (click)="routerLinkFunciona('dashboard/turmas')"><i></i>Aulas</li>
+        <li (click)="routerLinkFunciona('dashboard/indica')"><i></i>Indica</li>
+        <li (click)="routerLinkFunciona('')"><i></i>Sair</li>
+    </ul>
+</div>
+
+<div class="main-content">
+    <div class="filtro-estoque">
+        <label for="id_produto">ID do Produto:</label>
+        <input
+          type="number"
+          id="id_produto"
+          [(ngModel)]="id_produto"
+          placeholder="Digite o ID do produto"
+        />
+        <button (click)="buscarEstoquePorId(id_produto)">Buscar Estoque</button>
+      </div>
+
+      <table border="1">
+          <thead>
+              <tr>
+                <th>ID do Produto</th>
+                <th>Quantidade</th>
+                <th>Editar Estoque</th>
+                <th>Deletar Estoque</th>
+              </tr>
+          </thead>
+          <tbody>
+              @for(estoque of estoqueFiltrado; track $index){
+                  <tr>
+                    <td style="text-decoration: underline; color: blue; cursor: pointer;">{{ estoque.id_produto }}</td>
+                    <td>{{ estoque.quantidade }}</td>
+                    <td> <button type="button" class="btn btn-primary" (click)="toggleFormEdit(estoque.id_produto)">Editar Estoque</button> </td>
+                    <td> <button type="button" class="btn btn-primary" (click)="deletarEstoque(estoque.id_produto)">Deletar Estoque</button> </td>
+                  </tr>
+              }
+          </tbody>
+      </table>
+  
+
+
+    <div class="botoes">
+        <button type="button" class="btn btn-primary" (click)="toggleForm()">
+          {{ showForm ? 'Cancelar' : 'Adicionar Estoque' }}
+        </button>
+    </div>
+
+    @if(showForm){
+        <div class="form-container">
+            <h3>Adicionar Estoque</h3>
+            <form (ngSubmit)="adicionarEstoque()">
+                <div>
+                    <label for="id_produto">ID do Produto:</label>
+                    <input type="number" [(ngModel)]="id_produto" name="id_produto" required />
+                </div>
+                <div>
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" [(ngModel)]="quantidade" name="quantidade" required />
+                </div>
+                  <button type="submit" class="btn btn-primary">Salvar</button>
+                  <button type="button" class="btn btn-secondary" (click)="resetForm()">Limpar</button>
+            </form>
+        </div>
+    }
+
+    @if(isUpdating){
+      <div class="form-container">
+          <h3>Editar Estoque</h3>
+          <form (ngSubmit)="atualizarEstoque()">
+            <div>
+                <label for="id_produto">ID do Produto:</label>
+                <input type="number" [(ngModel)]="id_produto_edit" name="id_produto" [readonly]="true" />
+              </div>
+              <div>
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" [(ngModel)]="quantidade" name="quantidade" required />
+              </div>
+            
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-secondary" (click)="resetForm()">Limpar</button>
+          </form>
+      </div>
+  }
+
+</div>

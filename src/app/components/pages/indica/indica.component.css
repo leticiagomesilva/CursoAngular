@@ -1,5 +1,5 @@
 .sidebar {
-    width: 320px;
+    width: 300px;
     height: 100vh;
     background-color: #154c79;
     position: fixed;
@@ -35,7 +35,7 @@
     padding: 20px;
 }
 
-.filtro-aluno {
+.filtro-indica {
     margin-bottom: 15px;
     display: flex; /* Organiza os elementos em linha */
     align-items: center; /* Alinha os elementos verticalmente ao centro */
@@ -44,11 +44,11 @@
     border-radius: 5px; /* Arredonda as bordas */
   }
   
-  .filtro-aluno label {
+  .filtro-indica label {
     margin-right: 10px; /* Cria um espaço entre o label e o input */
   }
   
-  .filtro-aluno input {
+  .filtro-indica input {
     flex: 1; /* Faz o input ocupar o espaço restante */
     padding: 5px;
     border: none; /* Remove a borda do input */
@@ -56,13 +56,14 @@
     border-radius: 3px;
   }
   
-  .filtro-aluno button {
+  .filtro-indica button {
     padding: 5px 10px;
     background-color: #007BFF; /* Cor verde padrão */
     color: white;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    margin-right: 5px;
   }
   table {
       width: 100%;
@@ -79,6 +80,7 @@
     thead {
       background-color: #007BFF;
       color: white;
+    
     }
     
     thead th {
@@ -86,6 +88,7 @@
       text-transform: uppercase;
       letter-spacing: 0.03em;
       color: #f0f0f0;
+
     }
     
     tbody tr {
@@ -141,7 +144,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 700px; /* Adjust height as needed */
+      height: 350px; /* Adjust height as needed */
       flex-direction: column;
   
       /* Styling the form */

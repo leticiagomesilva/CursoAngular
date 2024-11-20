@@ -17,9 +17,17 @@ export class AlunoComponent {
   showForm: boolean = false;
   matricula!: number;
   cpf_aluno!: string;
-
+  cpf!: string;
+  nome!: string;
+  cidade!: string;
+  bairro!: string;
+  rua!: string;
+  cep!: string;
+  telefone_1!: string;
+  telefone_2!: string;
+  
   constructor(private router: Router, private alunosService: AlunosService) {}
-
+  
   ngOnInit(): void {
     this.getAlunos();
     this.alunosFiltrados = [...this.alunos]; 
@@ -35,8 +43,14 @@ export class AlunoComponent {
   }
 
   resetForm() {
-    // this.matricula = null;
-    this.cpf_aluno = '';
+    this.cpf = '';
+    this.nome = '';
+    this.cidade = '';
+    this.bairro = '';
+    this.rua = '';
+    this.cep = '';
+    this.telefone_1 = '';
+    this.telefone_2 = '';
   }
 
   getAlunos() {
@@ -47,36 +61,73 @@ export class AlunoComponent {
     });
   }
 
-  buscarAlunoPorMatricula(matricula: number) {
-    if (!matricula) { 
+  buscarAlunoPorCpf(cpf: string) {
+    console.log(cpf);
+    if (!cpf) { 
       this.alunosFiltrados = [...this.alunos];
     } else {
-      this.alunosFiltrados = this.alunos.filter(
-        (aluno) => aluno.matricula === matricula
-      );
+      this.alunosService.getAlunosByReg(cpf).subscribe((aluno: any) => {
+        this.alunosFiltrados = [aluno]
+      });
     }
   }
 
-  adicionarAluno() {
-    console.log('aluno: ', this.matricula, this.cpf_aluno);
-    this.alunosService.addAluno(this.matricula, this.cpf_aluno).subscribe((alunoAdicionado: any) => {
-      console.log(alunoAdicionado);
-      this.alunos.push(alunoAdicionado);
-      this.resetForm(); 
-    });
-    window.location.reload();
-  }
+  // adicionarAluno() {
+  //   console.log('aluno: ', this.cpf_aluno, this.cpf, this.nome, this.cidade, this.bairro, this.rua, this.cep, this.telefone_1, this.telefone_2);
+  //   this.alunosService.cadastrarAlunoComPessoa(this.cpf_aluno, this.cpf, this.nome, this.cidade, this.bairro, this.rua, this.cep, this.telefone_1, this.telefone_2).subscribe((alunoAdicionado: any) => {
+  //     console.log(alunoAdicionado);
+  //     this.alunos.push(alunoAdicionado);
+  //     this.resetForm(); 
+  //   });
+  // }
 
-  deletarAluno(matricula: number) {
-    console.log(`deletar aluno ${matricula}`);
-    this.alunosService.delAluno(matricula).subscribe(() => {
-      this.alunos = this.alunos.filter(aluno => aluno.matricula !== matricula); 
+  // adicionarAluno() {
+  //   this.alunosService.cadastrarAlunoComPessoa(
+  //     this.cpf, this.nome, this.cidade, 
+  //     this.bairro, this.rua, this.cep, this.telefone_1, this.telefone_2
+  //   ).subscribe({
+  //     next: (alunoAdicionado: any) => {
+  //       console.log(alunoAdicionado);
+  //       this.getAlunos(); 
+  //       this.resetForm();
+  //     }});
+  // }
+
+  adicionarAluno() {
+    console.log('Adding Pessoa:', this.cpf, this.nome, this.cidade, this.bairro, this.rua, this.cep, this.telefone_1, this.telefone_2);
+
+    this.alunosService
+        .cadastrarAlunoComPessoa(this.cpf, this.nome, this.cidade, this.bairro, this.rua, this.cep, this.telefone_1, this.telefone_2)
+        .subscribe(
+            (response: any) => {
+                console.log('Pessoa and Aluno added successfully:', response);
+                this.getAlunos(); // Refresh the list of Alunos
+                this.resetForm(); // Clear the form
+            }
+        );
+}
+
+  deletarAluno(cpf: string) {
+    console.log(`deletar aluno ${cpf}`);
+    this.alunosService.delAluno(cpf).subscribe(() => {
+      this.alunos = this.alunos.filter(aluno => aluno.cpf_aluno !== cpf); 
     });
     window.location.reload();
   }
 }
 
-interface Aluno {
+export interface Aluno {
   matricula: number;
   cpf_aluno: string;
+}
+
+export interface Pessoa {
+  cpf: string;
+  nome: string;
+  cidade: string;
+  bairro: string;
+  rua: string;
+  cep: string;
+  telefone_1: string;
+  telefone_2: string;
 }

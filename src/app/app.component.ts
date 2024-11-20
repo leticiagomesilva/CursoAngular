@@ -31,6 +31,9 @@ import { CampeonatosComponent } from './components/pages/campeonatos/campeonatos
 import { ShowComponent } from './components/pages/show/show.component';
 import { FuncionarioComponent } from './components/pages/funcionario/funcionario.component';
 import { FormAdicionarComponent } from './components/pages/form-adicionar/form-adicionar.component';
+import { EstoqueComponent } from './components/pages/estoque/estoque.component';
+import { ComprasComponent } from './components/pages/compras/compras.component';
+import { IndicaComponent } from './components/pages/indica/indica.component';
 
 @Component({
   selector: 'app-root',
@@ -43,7 +46,8 @@ import { FormAdicionarComponent } from './components/pages/form-adicionar/form-a
     MatButtonModule, ServicosComponent, ContatoComponent, CadastroComponent,
     DashboardComponent, AlunoComponent, PessoaComponent, ReservaComponent,
     TurmaComponent, QuadraComponent, ProdutoComponent, CampeonatosComponent, 
-    ShowComponent, FuncionarioComponent, FormAdicionarComponent ],
+    ShowComponent, FuncionarioComponent, FormAdicionarComponent, EstoqueComponent, 
+    ComprasComponent, IndicaComponent ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [HttpClient, HttpClientModule],

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { switchMap } from 'rxjs';
 
-interface Aluno {
+export interface Aluno {
   matricula: number;
   cpf_aluno: string;
 }
@@ -21,17 +22,52 @@ export class AlunosService {
     return this.http.get(this.apiUrl);
   }
 
-  getAlunosByReg(matricula: number) {
-    return this.http.get(`${this.apiUrl}/${matricula}`);
+  getAlunosByReg(cpf: string) {
+    return this.http.get(`${this.apiUrl}/${cpf}`);
   }
 
-  addAluno(matricula: number, cpf_aluno: string) {
-    const body = { matricula, cpf_aluno };
-    return this.http.post(this.apiUrl, body);
-  }
+  // addAluno(cpf_aluno: string) {
+  //   const body = {cpf_aluno };
+  //   return this.http.post(this.apiUrl, body);
+  // }
 
-  delAluno(matricula: number) {
-    return this.http.delete(`${this.apiUrl}/${matricula}`);
+  cadastrarAlunoComPessoa(
+    cpf: string,
+    nome: string,
+    cidade: string,
+    bairro: string,
+    rua: string,
+    cep: string,
+    telefone_1: string,
+    telefone_2: string
+) {
+    const pessoa = {
+        cpf,
+        nome,
+        cidade,
+        bairro,
+        rua,
+        cep,
+        telefone_1,
+        telefone_2
+    };
+
+    return this.http.post(`${this.baseUrl}/Pessoa`, pessoa);
+}
+  
+  delAluno(cpf: string) {
+    return this.http.delete(`${this.apiUrl}/${cpf}`);
   }
   
+}
+
+export interface Pessoa {
+  cpf: string;
+  nome: string;
+  cidade: string;
+  bairro: string;
+  rua: string;
+  cep: string;
+  telefone_1: string;
+  telefone_2: string;
 }

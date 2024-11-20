@@ -7,16 +7,65 @@
         <li (click)="routerLinkFunciona('dashboard/alunos')"><i></i>Alunos</li>
         <li (click)="routerLinkFunciona('dashboard/pessoas')"><i></i>Pessoas</li>
         <li (click)="routerLinkFunciona('dashboard/reservas')"><i></i>Reservas</li>
-        <li (click)="routerLinkFunciona('dashboard/turmas')"><i></i>Turmas</li>
-        <li (click)="routerLinkFunciona('dashboard/quadras')"><i></i>Quadras</li>
+        <li (click)="routerLinkFunciona('dashboard/compra')"><i></i>Compras</li>
         <li (click)="routerLinkFunciona('dashboard/produtos')"><i></i>Produtos</li>
-        <li (click)="routerLinkFunciona('dashboard/campeonatos')"><i></i>Campeonatos</li>
-        <li (click)="routerLinkFunciona('dashboard/show')"><i></i>Show</li>
-        <li (click)="routerLinkFunciona('dashboard/funcionarios')"><i></i>Funcionários</li>
+        <li (click)="routerLinkFunciona('dashboard/estoque')"><i></i>Estoque</li>
+        <li (click)="routerLinkFunciona('dashboard/quadras')"><i></i>Quadras</li>
+        <li (click)="routerLinkFunciona('dashboard/turmas')"><i></i>Aulas</li>
+        <li (click)="routerLinkFunciona('dashboard/indica')"><i></i>Indica</li>
         <li (click)="routerLinkFunciona('')"><i></i>Sair</li>
     </ul>
 </div>
 
 <div class="main-content">
+
+    <h2 style="color: #007BFF;">Aulas</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Aluno CPF</th>
+                <th>ID da Turma</th>
+                <th>Professor CPF</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(aula of aulasFiltradas; track $index){
+                <tr>
+                    <td>{{ aula.aluno_cpf }}</td>
+                    <td>{{ aula.id_turma }}</td>
+                    <td>{{ aula.professor_cpf }}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="botoes">
+        <button type="button" class="btn btn-primary" (click)="toggleForm()">
+          {{ showForm ? 'Cancelar' : 'Adicionar Aula' }}
+        </button>
+    </div>
+
+    @if(showForm){
+        <div class="form-container">
+            <h3>Adicionar Aula</h3>
+            <form (ngSubmit)="adicionarAula()">
+                <div>
+                    <label for="aluno_cpf">Aluno CPF:</label>
+                    <input type="text" [(ngModel)]="aluno_cpf" name="aluno_cpf" required />
+                </div>
+                <div>
+                    <label for="id_turma">ID da Turma:</label>
+                    <input type="number" [(ngModel)]="id_turma" name="id_turma" required />
+                </div>
+                <div>
+                    <label for="professor_cpf">Professor CPF:</label>
+                    <input type="text" [(ngModel)]="professor_cpf" name="professor_cpf" required />
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-secondary" (click)="resetForm()">Limpar</button>
+            </form>
+        </div>
+    }
 
 </div>
