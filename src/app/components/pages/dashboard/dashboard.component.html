@@ -20,52 +20,27 @@
 <div class="main-content">
 
     <div class="header">
-     <h1>Dashboard</h1>
-     <div class="user-info">
-      <img height="40" src="func.jpg" width="40"/>
-      <span>Nome do Usuário</span>
-     </div>
+        <h1>Dashboard</h1>
     </div>
 
     <div class="content">
-        <div class="card">
+        <div class="dashboard-container">
             <h3>Estatísticas Gerais</h3>
-            <div class="stats">
-                <div>
-                    <h4>Reservas Hoje</h4>
-                    <p>15</p>
-                </div>
-                <div>
-                    <h4>Alunos Cadastrados</h4>
-                    <p>120</p>
-                </div>
-                <div>
-                    <h4>Quadras Disponíveis</h4>
-                    <p>5</p>
-                </div>
+            <div class="estaticos">
+                <p>Reservas Hoje: {{ dashboardData?.quantidadeDeReservas }}</p>
+                <p>Compras Hoje: {{ dashboardData?.quantidadeDeCompras }}</p>
+                <p>Total de Alunos: {{ dashboardData?.quantidadeDeAlunos }}</p>
             </div>
-        </div>
-
-        <div class="card">
-            <!-- <h3>Próximas Reservas</h3>
-            <ul>
-            <li>10:00 - Quadra 1 - João Silva</li>
-            <li>11:00 - Quadra 2 - Maria Oliveira</li>
-            <li>12:00 - Quadra 3 - Pedro Santos</li>
-            <li>13:00 - Quadra 4 - Ana Costa</li>
-            <li>14:00 - Quadra 5 - Lucas Lima</li>
-            </ul> -->
-        </div>
-
-        <div class="card">
-            <!-- <h3>Últimos Clientes</h3>
-            <ul>
-            <li>João Silva</li>
-            <li>Maria Oliveira</li>
-            <li>Pedro Santos</li>
-            <li>Ana Costa</li>
-            <li>Lucas Lima</li>
-            </ul> -->
+              
+            <div>
+                <h3>Gráfico de Barras: Pessoas por Cidade</h3>
+                <canvas id="cidadeBarChart"></canvas>
+            </div>
+              
+            <div>
+                <h3>Gráfico de Pizza</h3>
+                <canvas id="summaryPieChart"></canvas>
+            </div>
         </div>
     </div>
 </div>

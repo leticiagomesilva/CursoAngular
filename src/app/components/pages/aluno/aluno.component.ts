@@ -72,40 +72,14 @@ export class AlunoComponent {
     }
   }
 
-  // adicionarAluno() {
-  //   console.log('aluno: ', this.cpf_aluno, this.cpf, this.nome, this.cidade, this.bairro, this.rua, this.cep, this.telefone_1, this.telefone_2);
-  //   this.alunosService.cadastrarAlunoComPessoa(this.cpf_aluno, this.cpf, this.nome, this.cidade, this.bairro, this.rua, this.cep, this.telefone_1, this.telefone_2).subscribe((alunoAdicionado: any) => {
-  //     console.log(alunoAdicionado);
-  //     this.alunos.push(alunoAdicionado);
-  //     this.resetForm(); 
-  //   });
-  // }
-
-  // adicionarAluno() {
-  //   this.alunosService.cadastrarAlunoComPessoa(
-  //     this.cpf, this.nome, this.cidade, 
-  //     this.bairro, this.rua, this.cep, this.telefone_1, this.telefone_2
-  //   ).subscribe({
-  //     next: (alunoAdicionado: any) => {
-  //       console.log(alunoAdicionado);
-  //       this.getAlunos(); 
-  //       this.resetForm();
-  //     }});
-  // }
-
   adicionarAluno() {
-    console.log('Adding Pessoa:', this.cpf, this.nome, this.cidade, this.bairro, this.rua, this.cep, this.telefone_1, this.telefone_2);
-
-    this.alunosService
-        .cadastrarAlunoComPessoa(this.cpf, this.nome, this.cidade, this.bairro, this.rua, this.cep, this.telefone_1, this.telefone_2)
-        .subscribe(
-            (response: any) => {
-                console.log('Pessoa and Aluno added successfully:', response);
-                this.getAlunos(); // Refresh the list of Alunos
-                this.resetForm(); // Clear the form
-            }
-        );
-}
+    console.log('aluno: ', this.cpf, this.nome, this.cidade, this.bairro, this.rua, this.cep, this.telefone_1, this.telefone_2);
+    this.alunosService.cadastrarAlunoComPessoa(this.cpf, this.nome, this.cidade, this.bairro, this.rua, this.cep, this.telefone_1, this.telefone_2).subscribe((alunoAdicionado: any) => {
+      console.log(alunoAdicionado);
+      this.alunos.push(alunoAdicionado);
+      this.resetForm(); 
+    });
+  }
 
   deletarAluno(cpf: string) {
     console.log(`deletar aluno ${cpf}`);

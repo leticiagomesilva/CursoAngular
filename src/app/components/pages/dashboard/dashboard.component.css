@@ -83,3 +83,29 @@
 .card li {
     margin-left: 20px;
 }
+
+canvas {
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    justify-content: left;
+}
+  
+h3 {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+
+.dashboard-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.estaticos {
+    margin-bottom: 20px;
+}

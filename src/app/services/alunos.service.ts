@@ -52,7 +52,7 @@ export class AlunosService {
         telefone_2
     };
 
-    return this.http.post(`${this.baseUrl}/Pessoa`, pessoa);
+    return this.http.post(`${this.baseUrl}/Aluno/cadastrar`, pessoa);
 }
   
   delAluno(cpf: string) {
